@@ -14,7 +14,8 @@
 	<name>api-rest-vehicle</name>
 	<description>Api REST Vehicle</description>
 	<properties>
-		<java.version>17</java.version>
+		<maven.compliler.source>17</maven.compliler.source>
+		<maven.compliler.target>17</maven.compliler.target>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,6 +47,18 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.32</version>
+		    <scope>runtime</scope>
+		</dependency> 
 	</dependencies>
 
 	<build>
