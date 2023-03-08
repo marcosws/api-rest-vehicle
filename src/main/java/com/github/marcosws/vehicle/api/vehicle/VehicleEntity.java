@@ -1,8 +1,8 @@
-package com.github.marcosws.vehicle.vehicle;
+package com.github.marcosws.vehicle.api.vehicle;
 
 
-import com.github.marcosws.vehicle.automaker.AutomakerEntity;
-import com.github.marcosws.vehicle.user.UserEntity;
+import com.github.marcosws.vehicle.api.automaker.AutomakerEntity;
+import com.github.marcosws.vehicle.api.user.UserEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,9 +1,9 @@
-package com.github.marcosws.vehicle.user;
+package com.github.marcosws.vehicle.api.automaker;
 
 import java.util.List;
 
-import com.github.marcosws.vehicle.automaker.AutomakerEntity;
-import com.github.marcosws.vehicle.vehicle.VehicleEntity;
+import com.github.marcosws.vehicle.api.user.UserEntity;
+import com.github.marcosws.vehicle.api.vehicle.VehicleEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,6 +11,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -19,12 +21,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "user_tab")
+@Table(name = "automaker_tab")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
-public class UserEntity {
+public class AutomakerEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -33,16 +35,14 @@ public class UserEntity {
 	@Column(name = "name", length = 500)
 	private String name;
 	
-	@Column(name = "login", length = 500)
-	private String login;
+	@Column(name = "country_origin", length = 100)
+	private String countryOrigin;
 	
-	@Column(name = "password", length = 1024)
-	private String password;
-	
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	private List<AutomakerEntity> automakers;
-	
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "automaker", fetch = FetchType.LAZY)
 	private List<VehicleEntity> vehicles;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id", nullable = false)
+	private UserEntity user;
 	
 }
