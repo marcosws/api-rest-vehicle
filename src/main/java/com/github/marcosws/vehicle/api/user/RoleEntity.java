@@ -1,6 +1,5 @@
 package com.github.marcosws.vehicle.api.user;
 
-import org.springframework.security.core.GrantedAuthority;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "role_tab")
 @NoArgsConstructor
 @Data
-public class RoleEntity implements GrantedAuthority{
+public class RoleEntity /* implements GrantedAuthority */{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -23,14 +22,4 @@ public class RoleEntity implements GrantedAuthority{
 	private Long id;
 	private String name;
 	
-	
-	@Override
-	public String getAuthority() {
-		return name;
-	}
-	
-	
-	
-	
-
 }

@@ -3,9 +3,6 @@ package com.github.marcosws.vehicle.api.user;
 import java.util.Collection;
 import java.util.List;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import com.github.marcosws.vehicle.api.automaker.AutomakerEntity;
 import com.github.marcosws.vehicle.api.vehicle.VehicleEntity;
 
@@ -31,7 +28,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class UserEntity implements UserDetails {
+public class UserEntity /* implements UserDetails */ {
 	
 	/**
 	 * 
@@ -62,7 +59,7 @@ public class UserEntity implements UserDetails {
 		joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
 		inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
 	private List<RoleEntity> roles;
-	
+	/*
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return roles;
@@ -91,6 +88,6 @@ public class UserEntity implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return true;
-	}
+	} */
 	
 }
