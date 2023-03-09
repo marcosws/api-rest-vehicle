@@ -43,3 +43,8 @@ insert into automaker_tab(name, country_origin, user_id) values('MINI', 'REINO U
 insert into automaker_tab(name, country_origin, user_id) values('ROLLS-ROYCE', 'REINO UNIDO', 1);
 insert into automaker_tab(name, country_origin, user_id) values('MERCEDES-BENZ', 'ALEMANHA', 1);
 insert into automaker_tab(name, country_origin, user_id) values('MAYBACH', 'ALEMANHA', 1);
+
+insert into vehicle_tab(name, model, engine, color, automaker_id, user_id) values('A3 sedan','2023','S line 40 TFSI S tronic - 204cv','Branco ibis',1,1);
+insert into vehicle_tab(name, model, engine, color, automaker_id, user_id) values('A3 sedan','2023','S line 40 TFSI S tronic - 2.0 TFSI - 204cv','Azul Turbo',1,1);
+insert into vehicle_tab(name, model, engine, color, automaker_id, user_id) values('A4 Sedan','2023','Prestige 40 TFSI S tronic - 2.0 TFSI - 204cv','Preto Brilhante',1,1);
+insert into vehicle_tab(name, model, engine, color, automaker_id, user_id) values('320i GP','2023','184cv','Branco Alpino',31,1);

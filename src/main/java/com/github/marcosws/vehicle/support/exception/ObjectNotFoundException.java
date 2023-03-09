@@ -1,4 +1,4 @@
-package com.github.marcosws.vehicle.infra.exception;
+package com.github.marcosws.vehicle.support.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

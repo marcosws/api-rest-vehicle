@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.4</version>
+		<version>2.7.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.github.marcosws</groupId>
@@ -13,10 +13,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>api-rest-vehicle</name>
 	<description>Api REST Vehicle</description>
-	<properties>
-		<maven.compliler.source>17</maven.compliler.source>
-		<maven.compliler.target>17</maven.compliler.target>
-	</properties>
+	<!--<properties>
+		<maven.compliler.source>11</maven.compliler.source>
+		<maven.compliler.target>11</maven.compliler.target>
+	</properties>-->
+	
 	<dependencies>
 		<!-- Spring ================================= -->
 		<dependency>
@@ -56,40 +57,9 @@
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
-		    <version>8.0.32</version>
+		    <version>8.0.32</version><!--$NO-MVN-MAN-VER$-->
 		    <scope>runtime</scope>
 		</dependency> 
-		
-		<!-- Swagger -->
-		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
-		<dependency>
-		    <groupId>io.springfox</groupId>
-		    <artifactId>springfox-swagger2</artifactId>
-		    <version>3.0.0</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
-		<dependency>
-		    <groupId>io.springfox</groupId>
-		    <artifactId>springfox-swagger-ui</artifactId>
-		    <version>3.0.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.springdoc</groupId>
-		    <artifactId>springdoc-openapi-ui</artifactId>
-		    <version>1.6.4</version>
-		</dependency>
-		<dependency>
-		    <groupId>io.springfox</groupId>
-		    <artifactId>springfox-boot-starter</artifactId>
-		    <version>3.0.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>javax.servlet</groupId>
-		    <artifactId>javax.servlet-api</artifactId>
-		    <version>3.1.0</version>
-		    <scope>provided</scope>
-		</dependency>
-		
 		
 		<dependency>
 		  <groupId>org.modelmapper</groupId>
@@ -104,7 +74,7 @@
 		</dependency>
 		
 				<!-- JWT -->
-        <dependency>
+      <!-- <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
             <version>0.10.5</version>
@@ -120,21 +90,64 @@
             <artifactId>jjwt-jackson</artifactId>
             <version>0.10.5</version>
             <scope>runtime</scope>
-        </dependency>
+        </dependency> -->
 		
 		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
 		    <groupId>com.google.code.gson</groupId>
 		    <artifactId>gson</artifactId>
 		</dependency>
+		
+		<!-- Swagger -->
+	     <dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-boot-starter</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger2 </artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger-ui</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+		        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version><!--$NO-MVN-MAN-VER$-->
+            <scope>provided</scope>
+        </dependency>
+		
 	</dependencies>
+
+	<repositories>
+        <repository><!-- Swagger -->
+          <id>jcenter-snapshots</id>
+          <name>jcenter</name>
+          <url>https://jcenter.bintray.com/</url>
+        </repository>
+    </repositories>
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.6.4</version><!--$NO-MVN-MAN-VER$-->
 			</plugin>
+			<plugin>    
+		        <artifactId>maven-compiler-plugin</artifactId>
+		        <configuration>
+		            <source>11</source>
+		            <target>11</target>
+		        </configuration>
+    		</plugin>
 		</plugins>
 	</build>
 

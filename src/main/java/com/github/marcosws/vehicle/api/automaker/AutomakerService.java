@@ -10,7 +10,7 @@ import org.springframework.util.Assert;
 
 import com.github.marcosws.vehicle.api.user.UserEntity;
 import com.github.marcosws.vehicle.api.user.UserRepository;
-import com.github.marcosws.vehicle.infra.exception.ObjectNotFoundException;
+import com.github.marcosws.vehicle.support.exception.ObjectNotFoundException;
 
 @Service
 public class AutomakerService {
@@ -22,20 +22,26 @@ public class AutomakerService {
 	private UserRepository userRepository;
 	
 	public List<AutomakerDTO> getAutomakers(){
+		
 		return automakerRepository.findAll().stream().map(AutomakerDTO::create).collect(Collectors.toList());
+		
 	}
 	
 	public AutomakerDTO getAutomakerById(Long id) {
+		
 		Optional<AutomakerEntity> automaker = automakerRepository.findById(id);
 		return automaker.map(AutomakerDTO::create).orElseThrow(() -> new ObjectNotFoundException("A Montadora não foi encontrada!"));
+		
 	}
 	
 	public AutomakerDTO insert(AutomakerEntity automaker) {
+		
 		Assert.isNull(automaker.getId(),"Não foi possivel atualizar o registro!");
 		Optional<UserEntity> optionalUser = userRepository.findById(1L);
 		UserEntity user = optionalUser.get();
 		automaker.setUser(user);
 		return AutomakerDTO.create(automakerRepository.save(automaker));
+		
 	}
 	
 	public AutomakerDTO update(AutomakerEntity automaker, Long id) {
@@ -59,6 +65,8 @@ public class AutomakerService {
 	}
 	
 	public void delete(Long id) {
+		
 		automakerRepository.deleteById(id);
+		
 	}
 }
