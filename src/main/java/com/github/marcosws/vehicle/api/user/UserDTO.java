@@ -15,19 +15,16 @@ import lombok.Data;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
 	
-	private String name;
-	private String login;
+	private String fullname;
+	private String username;
 	private String token;
     private List<String> roles;
 
     public static UserDTO create(UserEntity user) {
+    	
         ModelMapper modelMapper = new ModelMapper();
         UserDTO dto = modelMapper.map(user, UserDTO.class);
-
-        dto.roles = user.getRoles().stream()
-                .map(RoleEntity::getName)
-                .collect(Collectors.toList());
-
+        dto.roles = user.getRoles().stream().map(RoleEntity::getName).collect(Collectors.toList());
         return dto;
     }
 
